@@ -1,0 +1,6 @@
+export const GET_POSTS_BY_USER = 'GET_POSTS_BY_USER';
+export const LOADING = 'LOADING';
+export const ERROR = 'ERROR';
+export const COMMENTS_LOADING = 'COMMENTS_LOADING';
+export const COMMENTS_ERROR = 'COMMENTS_ERROR';
+export const COMMENTS_UPDATING = 'COMMENTS_UPDATING';

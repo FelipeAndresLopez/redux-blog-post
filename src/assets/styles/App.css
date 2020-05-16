@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.margen {
+  margin: 100px;
+}
+
+.tabla {
+  width: 100%;
+  text-align: left;
+}
+
+.tabla td {
+  padding: 10px 0;
+}
+
+.navbar {
+  background-color: #253a46;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.navbar a {
+  color: white;
+  padding-right: 50px;
+}
+
+.center {
+  text-align: center;
+}
+
+.red-text {
+  color: red;
+}
+
+.posts-title {
+  border-top: 1px solid black;
+  cursor: pointer;
+}
+
+li {
+  margin: 15px 0;
+}
