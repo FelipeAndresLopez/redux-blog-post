@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Loading from './Loading';
-import Error from './Error';
+import Loading from '../General/Loading';
+import Error from '../General/Error';
 
-import { getUsers } from '../actions/userActions';
-import { getPostsByUser, toggle, getComments } from '../actions/postActions';
+import { getUsers } from '../../actions/userActions';
+import { getPostsByUser, toggle, getComments } from '../../actions/postActions';
 import Comments from './Comments';
 
 class Posts extends Component {

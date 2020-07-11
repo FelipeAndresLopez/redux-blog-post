@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Loading from '../components/Loading';
-import Error from '../components/Error';
+import Loading from '../General/Loading';
+import Error from '../General/Error';
 
 const Comments = (props) => {
   if (props.commentsError) {

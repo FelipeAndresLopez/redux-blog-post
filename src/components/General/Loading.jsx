@@ -1,5 +1,5 @@
 import React from "react";
-import "../assets/styles/components/Loading.css";
+import "../../assets/styles/components/Loading.css";
 
 const Loading = () => (
   <div className="center">

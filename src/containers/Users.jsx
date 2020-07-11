@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Loading from '../components/Loading';
-import Error from '../components/Error';
-import Table from '../components/Table';
+import Loading from '../components/General/Loading';
+import Error from '../components/General/Error';
+import Table from '../components/Users/Table';
 
 import * as userActions from '../actions/userActions';
 
