@@ -9,13 +9,21 @@ import Error from "../General/Error";
 export class Tasks extends Component {
 
   componentDidMount() {
-    this.props.getTasks();
+    if (!Object.keys(this.props.tasks).length) {
+      this.props.getTasks();
+    }
+  }
+
+  componentDidUpdate() {
+    const { tasks, loading, getTasks } = this.props;
+    if (!Object.keys(tasks).length && !loading) {
+      getTasks();
+    }
   }
 
   showContent = () => {
     const { tasks, loading, error } = this.props;
-    console.log(this.props)
-    if (loading) return <Loading />
+    // if (loading) return <Loading />
 
     if (error) return <Error message={error} />
 
@@ -31,16 +39,25 @@ export class Tasks extends Component {
     ))
   }
 
-  putTasks = (usu_id) => {
-    const { tasks } = this.props;
+  putTasks = (user_id) => {
+    const { tasks, changeCheckbox, deleteTask } = this.props;
     const byUser = {
-      ...tasks[usu_id]
+      ...tasks[user_id]
     };
 
     return Object.keys(byUser).map((task_id) => (
       <div key={task_id}>
-        <input type="checkbox" defaultChecked={byUser[task_id].completed} />
+        <input
+          type="checkbox"
+          defaultChecked={byUser[task_id].completed}
+          onChange={() => changeCheckbox(user_id, task_id)}
+        />
         {byUser[task_id].title}
+        <button className="m_left">
+          <Link to={`/tasks/save/${user_id}/${task_id}`}>
+            Edit
+          </Link></button>
+        <button className="m_left" onClick={() => deleteTask(task_id)}>Delete</button>
       </div>
     ))
 

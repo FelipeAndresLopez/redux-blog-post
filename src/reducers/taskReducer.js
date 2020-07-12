@@ -1,17 +1,18 @@
-import { GET_TASKS } from '../types/taskTypes';
-import { LOADING, ERROR } from '../types/taskTypes';
+import { GET_TASKS, LOADING, ERROR, CHANGE_USER_ID, CHANGE_TITLE, SAVE, UPDATE, CLEAN } from '../types/taskTypes';
+
 const INITIAL_STATE = {
   tasks: [],
   loading: false,
   error: null,
   user_id: '',
-  title: ''
+  title: '',
+  goBack: false
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_TASKS:
-      return { ...state, tasks: action.payload, loading: false, error: '' };
+      return { ...state, tasks: action.payload, loading: false, error: '', goBack: false };
 
     case LOADING:
       return { ...state, loading: true };
@@ -19,11 +20,20 @@ const reducer = (state = INITIAL_STATE, action) => {
     case ERROR:
       return { ...state, error: action.payload, loading: false };
 
-    case 'change_user_id':
+    case CHANGE_USER_ID:
       return { ...state, user_id: action.payload }
 
-    case 'change_title':
+    case CHANGE_TITLE:
       return { ...state, title: action.payload }
+
+    case SAVE:
+      return { ...state, tasks: {}, loading: false, error: '', goBack: true, user_id: '', title: '' }
+
+    case UPDATE:
+      return { ...state, tasks: action.payload }
+
+    case CLEAN:
+      return { ...state, user_id: '', title: '' }
 
     default:
       return state;

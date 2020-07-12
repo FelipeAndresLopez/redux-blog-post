@@ -14,6 +14,7 @@ const App = () => (
       <Route exact path="/tasks" component={Tasks} />
       <Route exact path="/posts/:key" component={posts} />
       <Route exact path="/tasks/save" component={TasksSaving} />
+      <Route exact path="/tasks/save/:user_id/:task_id" component={TasksSaving} />
     </div>
   </BrowserRouter>
 );
